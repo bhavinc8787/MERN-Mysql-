@@ -27,25 +27,76 @@ const App: React.FC = () => {
     <Router>
       <Box sx={{ flexGrow: 1 }}>
         {token && (
-          <AppBar position="static">
+          <AppBar 
+            position="static"
+            sx={{
+              backgroundColor: 'white',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            }}
+          >
             <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                User Management
+              <Typography 
+                variant="h6" 
+                component="div" 
+                sx={{ 
+                  flexGrow: 1,
+                  color: '#1976d2',
+                  fontWeight: 600,
+                  fontSize: '1.5rem'
+                }}
+              >
+                User Management System
               </Typography>
-              <Button color="inherit" onClick={() => window.location.href = '/users'}>
+              <Button 
+                onClick={() => window.location.href = '/users'}
+                sx={{ 
+                  mx: 1,
+                  color: '#2c3e50',
+                  '&:hover': {
+                    backgroundColor: 'rgba(25, 118, 210, 0.04)',
+                  }
+                }}
+              >
                 Users
               </Button>
-              <Button color="inherit" onClick={() => window.location.href = '/profile'}>
+              <Button 
+                onClick={() => window.location.href = '/profile'}
+                sx={{ 
+                  mx: 1,
+                  color: '#2c3e50',
+                  '&:hover': {
+                    backgroundColor: 'rgba(25, 118, 210, 0.04)',
+                  }
+                }}
+              >
                 Profile
               </Button>
-              <Button color="inherit" onClick={handleLogout}>
+              <Button 
+                onClick={handleLogout}
+                sx={{ 
+                  ml: 2,
+                  color: '#d32f2f',
+                  '&:hover': {
+                    backgroundColor: 'rgba(211, 47, 47, 0.04)',
+                  }
+                }}
+              >
                 Logout
               </Button>
             </Toolbar>
           </AppBar>
         )}
         
-        <Container>
+        <Container 
+          sx={{
+            mt: 4,
+            mb: 6,
+            minHeight: 'calc(100vh - 64px)',
+            backgroundColor: '#f5f5f5',
+            borderRadius: 2,
+            py: 3
+          }}
+        >
           <Routes>
             <Route path="/login" element={<LoginScreen />} />
             <Route
